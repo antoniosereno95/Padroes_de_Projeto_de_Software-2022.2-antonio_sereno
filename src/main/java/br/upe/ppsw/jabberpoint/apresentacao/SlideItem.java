@@ -8,12 +8,12 @@ public abstract class SlideItem {
 
   private int level = 0;
 
-  public SlideItem(int lev) {
-    level = lev;
+  public SlideItem(int lev) { //contrutor
+    level = lev; //falta o this
   }
 
-  public SlideItem() {
-    this(0);
+  public SlideItem() { //overload no construtor?
+    this(0); //this oq?
   }
 
   public int getLevel() {

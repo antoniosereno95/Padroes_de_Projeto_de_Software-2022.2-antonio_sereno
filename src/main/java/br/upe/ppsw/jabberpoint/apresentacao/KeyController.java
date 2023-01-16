@@ -7,7 +7,7 @@ public class KeyController extends KeyAdapter {
 
   private Presentation presentation;
 
-  public KeyController(Presentation p) {
+  public KeyController(Presentation p) { //construtor
     presentation = p;
   }
 

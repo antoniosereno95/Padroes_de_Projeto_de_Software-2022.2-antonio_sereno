@@ -26,15 +26,15 @@ public class TextItem extends SlideItem {
     text = string;
   }
 
-  public TextItem() {
-    this(0, EMPTYTEXT);
+  public TextItem() { //aqui ta errado falta o void
+    this(0, EMPTYTEXT);//oq porra é isso, um segundo contrutor?
   }
 
   public String getText() {
     return text == null ? "" : text;
   }
 
-  public AttributedString getAttributedString(Style style, float scale) {
+  public AttributedString getAttributedString(Style style, float scale) { //esse nome ta errado
     AttributedString attrStr = new AttributedString(getText());
 
     attrStr.addAttribute(TextAttribute.FONT, style.getFont(scale), 0, text.length());

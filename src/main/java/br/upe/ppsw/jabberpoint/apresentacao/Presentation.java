@@ -14,7 +14,7 @@ public class Presentation {
     clear();
   }
 
-  public Presentation(SlideViewerComponent slideViewerComponent) {
+  public Presentation(SlideViewerComponent slideViewerComponent) { //denovo override no construtor?
     this.slideViewComponent = slideViewerComponent;
     clear();
   }
@@ -58,7 +58,7 @@ public class Presentation {
     }
   }
 
-  void clear() {
+  public void clear() { //sem declaraçao de visibilidade(euq q coloquei como public)
     showList = new ArrayList<Slide>();
     setSlideNumber(-1);
   }
@@ -68,7 +68,7 @@ public class Presentation {
   }
 
   public Slide getSlide(int number) {
-    if (number < 0 || number >= getSize()) {
+    if (number < 0 || number >= getSize()) { //inverter esse if pfv
       return null;
     }
     return (Slide) showList.get(number);

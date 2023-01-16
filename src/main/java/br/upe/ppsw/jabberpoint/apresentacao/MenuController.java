@@ -15,7 +15,7 @@ public class MenuController extends MenuBar {
 
   private static final long serialVersionUID = 227L;
 
-  private Frame parent;
+  private Frame parent; //??????
   private Presentation presentation;
 
   protected static final String ABOUT = "Sobre";
@@ -23,7 +23,7 @@ public class MenuController extends MenuBar {
   protected static final String EXIT = "Sair";
   protected static final String GOTO = "Pular para";
   protected static final String HELP = "Ajuda";
-  protected static final String NEW = "Novo";
+  protected static final String NEW = "Novo"; //new nao é palavra reservada do java??
   protected static final String NEXT = "Próximo";
   protected static final String OPEN = "Abrir";
   protected static final String PAGENR = "Npumero do Slide?";
@@ -38,7 +38,7 @@ public class MenuController extends MenuBar {
   protected static final String LOADERR = "Erro ao carregar";
   protected static final String SAVEERR = "Erro ao salvar";
 
-  public MenuController(Frame frame, Presentation pres) {
+  public MenuController(Frame frame, Presentation pres) { //construtor?
     parent = frame;
     presentation = pres;
 

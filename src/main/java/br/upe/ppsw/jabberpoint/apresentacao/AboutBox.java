@@ -3,7 +3,7 @@ package br.upe.ppsw.jabberpoint.apresentacao;
 import java.awt.Frame;
 import javax.swing.JOptionPane;
 
-public class AboutBox {
+public class AboutBox { //classe sem construtor?
 
   public static void show(Frame parent) {
     JOptionPane.showMessageDialog(parent,

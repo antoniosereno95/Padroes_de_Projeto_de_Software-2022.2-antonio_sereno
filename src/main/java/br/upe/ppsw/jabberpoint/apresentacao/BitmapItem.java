@@ -16,7 +16,7 @@ public class BitmapItem extends SlideItem {
   protected static final String FILE = "Arquivo ";
   protected static final String NOTFOUND = " não encontrado";
 
-  public BitmapItem(int level, String name) {
+  public BitmapItem(int level, String name) { //construtor
     super(level);
 
     imageName = name;
@@ -29,7 +29,7 @@ public class BitmapItem extends SlideItem {
 
   }
 
-  public BitmapItem() {
+  public BitmapItem() { //override do construtor?
     this(0, null);
   }
 

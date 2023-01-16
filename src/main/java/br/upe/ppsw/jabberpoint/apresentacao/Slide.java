@@ -13,7 +13,7 @@ public class Slide {
   protected TextItem title;
   protected Vector<SlideItem> items;
 
-  public Slide() {
+  public Slide() { //contrutor todo tronxo
     items = new Vector<SlideItem>();
   }
 
