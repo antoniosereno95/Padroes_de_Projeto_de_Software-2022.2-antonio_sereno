@@ -1,4 +1,4 @@
-package br.upe.ppsw.jabberpoint.Presentacion;
+package br.upe.ppsw.jabberpoint.View;
 
 import java.awt.Color;
 import java.awt.Font;
