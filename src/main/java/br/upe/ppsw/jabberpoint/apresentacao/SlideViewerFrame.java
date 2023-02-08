@@ -5,6 +5,9 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 
+import br.upe.ppsw.jabberpoint.Controller.KeyController;
+import br.upe.ppsw.jabberpoint.Controller.MenuController;
+
 public class SlideViewerFrame extends JFrame {
 
   private static final long serialVersionUID = 3227L;
