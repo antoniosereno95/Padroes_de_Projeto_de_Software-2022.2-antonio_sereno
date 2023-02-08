@@ -1,4 +1,4 @@
-package br.upe.ppsw.jabberpoint.apresentacao;
+package br.upe.ppsw.jabberpoint.Presentacion;
 
 import java.io.FileNotFoundException;
 import org.springframework.util.ResourceUtils;

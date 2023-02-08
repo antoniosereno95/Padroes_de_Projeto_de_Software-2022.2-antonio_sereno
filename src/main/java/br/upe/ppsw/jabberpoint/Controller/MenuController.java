@@ -11,7 +11,8 @@ import java.io.IOException;
 import javax.swing.JOptionPane;
 import org.springframework.util.ResourceUtils;
 
-import br.upe.ppsw.jabberpoint.apresentacao.Presentation;
+import br.upe.ppsw.jabberpoint.Presentacion.Accessor;
+import br.upe.ppsw.jabberpoint.Presentacion.Presentation;
 
 public class MenuController extends MenuBar {
 
