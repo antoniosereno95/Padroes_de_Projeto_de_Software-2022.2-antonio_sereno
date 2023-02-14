@@ -47,6 +47,10 @@ public class Slide {
     return items.size();
   }
 
+  
+  
+  
+//------> Daqui pra baixo o codigo faz alteraçoes em tela, e deve ser colocado em um outro arquivo dentro do pacote VIEW  
   public void draw(Graphics g, Rectangle area, ImageObserver view) {
     float scale = getScale(area);
 

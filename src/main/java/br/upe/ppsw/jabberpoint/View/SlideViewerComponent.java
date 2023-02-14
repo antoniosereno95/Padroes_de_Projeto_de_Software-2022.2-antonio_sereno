@@ -11,7 +11,7 @@ import javax.swing.JFrame;
 import br.upe.ppsw.jabberpoint.Model.Presentation;
 import br.upe.ppsw.jabberpoint.Model.Slide;
 
-public class SlideViewerComponent extends JComponent {
+public class SlideViewerComponent extends JComponent {// classes que extendem esse JComponent sao todas de VIEW
   private static final long serialVersionUID = 227L;
 
   private static final Color BGCOLOR = Color.white;

@@ -47,9 +47,9 @@ public class BitmapItem extends SlideItem {
   
   
   
+  
 
   //------> Daqui pra baixo o codigo faz alteraçoes em tela, e deve ser colocado em um outro arquivo dentro do pacote VIEW
-  Style myStyle ;
   public Rectangle getBoundingBox(Graphics g, ImageObserver observer, float scale, Style myStyle) { 
 	  //pra resolver o problema aqui do acesso aos metodos da classe Style, ou muda a visibilidade da propriedade(nao recomendado),
 	  //ou entao faz os metodos get and set de todas as propriedades de todas as classes necessarias e reescreve o codigo com sua 
