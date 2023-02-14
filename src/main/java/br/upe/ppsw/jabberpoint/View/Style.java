@@ -7,21 +7,80 @@ public class Style {
 
   private static Style[] styles;
   private static final String FONTNAME = "Helvetica";
-  int indent;
+  private int indent;
   Color color;
   Font font;
   int fontSize;
   int leading;
-
+//tem que pegar esses atributos e gerar metodos GET and SET pra eles poderem ser acesssiveis por outras classes
+  
   
   public Style(int indent, Color color, int points, int leading) { //contrutor
 	    this.indent = indent;
 	    this.color = color;
 	    font = new Font(FONTNAME, Font.BOLD, fontSize = points);
 	    this.leading = leading;
-	  }
-  //comentario pra mandar so mais um push de confirmacao
+  }
   
+  
+  //getters and setters que eu criei
+  	//os arquivos BitMap e textItem seram as classes que iram utilizar esses get and set;
+  	//inicio
+  	public static Style[] getStyles() {
+		return styles;
+	}
+
+	public static void setStyles(Style[] styles) {
+		Style.styles = styles;
+	}
+
+	public int getIndent() {
+		return indent;
+	}
+
+	public void setIndent(int indent) {
+		this.indent = indent;
+	}
+
+	public Color getColor() {
+		return color;
+	}
+
+	public void setColor(Color color) {
+		this.color = color;
+	}
+
+	public Font getFont() {
+		return font;
+	}
+
+	public void setFont(Font font) {
+		this.font = font;
+	}
+
+	public int getFontSize() {
+		return fontSize;
+	}
+
+	public void setFontSize(int fontSize) {
+		this.fontSize = fontSize;
+	}
+
+	public int getLeading() {
+		return leading;
+	}
+
+	public void setLeading(int leading) {
+		this.leading = leading;
+	}
+
+	public static String getFontname() {
+		return FONTNAME;
+	}
+	//fim dos gets and sets gerados por mim
+  
+
+	
   public static void createStyles() {
     styles = new Style[5];
     styles[0] = new Style(0, Color.red, 48, 20); // nível 0
@@ -31,15 +90,16 @@ public class Style {
     styles[4] = new Style(90, Color.black, 24, 10); // nível 4
   }
 
+  
+
   public static Style getStyle(int level) {
     if (level >= styles.length) {
       level = styles.length - 1;
-    }
+    
+  }
 
     return styles[level];
   }
-
-  
 
   public String toString() {
     return "[" + indent + "," + color + "; " + fontSize + " on " + leading + "]";

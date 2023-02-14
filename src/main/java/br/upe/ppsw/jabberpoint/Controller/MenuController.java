@@ -13,6 +13,7 @@ import org.springframework.util.ResourceUtils;
 
 import br.upe.ppsw.jabberpoint.Model.Accessor;
 import br.upe.ppsw.jabberpoint.Model.Presentation;
+import br.upe.ppsw.jabberpoint.View.AboutBox;
 
 public class MenuController extends MenuBar {
 

@@ -5,8 +5,12 @@ import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
 import java.io.IOException;
+
 import javax.imageio.ImageIO;
+
 import org.springframework.util.ResourceUtils;
+
+import br.upe.ppsw.jabberpoint.View.Style;
 
 public class BitmapItem extends SlideItem {
 
@@ -29,7 +33,7 @@ public class BitmapItem extends SlideItem {
 
   }
 
-  public BitmapItem() { //override do construtor?
+  public BitmapItem() { //Segundo construtor?
     this(0, null);
   }
 
@@ -37,7 +41,19 @@ public class BitmapItem extends SlideItem {
     return imageName;
   }
 
-  public Rectangle getBoundingBox(Graphics g, ImageObserver observer, float scale, Style myStyle) {
+  public String toString() {
+    return "BitmapItem[" + getLevel() + "," + imageName + "]";
+  }
+  
+  
+  
+
+  //------> Daqui pra baixo o codigo faz alteraçoes em tela, e deve ser colocado em um outro arquivo dentro do pacote VIEW
+  Style myStyle ;
+  public Rectangle getBoundingBox(Graphics g, ImageObserver observer, float scale, Style myStyle) { 
+	  //pra resolver o problema aqui do acesso aos metodos da classe Style, ou muda a visibilidade da propriedade(nao recomendado),
+	  //ou entao faz os metodos get and set de todas as propriedades de todas as classes necessarias e reescreve o codigo com sua 
+	  //versao get alguma coisa
     return new Rectangle((int) (myStyle.indent * scale), 0,
         (int) (bufferedImage.getWidth(observer) * scale),
         ((int) (myStyle.leading * scale)) + (int) (bufferedImage.getHeight(observer) * scale));
@@ -51,7 +67,4 @@ public class BitmapItem extends SlideItem {
         (int) (bufferedImage.getHeight(observer) * scale), observer);
   }
 
-  public String toString() {
-    return "BitmapItem[" + getLevel() + "," + imageName + "]";
-  }
 }

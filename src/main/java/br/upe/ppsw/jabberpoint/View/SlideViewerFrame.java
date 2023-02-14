@@ -4,9 +4,10 @@ import java.awt.Dimension;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
-
 import br.upe.ppsw.jabberpoint.Controller.KeyController;
 import br.upe.ppsw.jabberpoint.Controller.MenuController;
+import br.upe.ppsw.jabberpoint.Model.Presentation;
+
 
 public class SlideViewerFrame extends JFrame {
 
@@ -42,5 +43,5 @@ public class SlideViewerFrame extends JFrame {
 
     setVisible(true);
   }
-
+  
 }
