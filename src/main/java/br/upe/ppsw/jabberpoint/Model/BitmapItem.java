@@ -54,14 +54,14 @@ public class BitmapItem extends SlideItem {
 	  //pra resolver o problema aqui do acesso aos metodos da classe Style, ou muda a visibilidade da propriedade(nao recomendado),
 	  //ou entao faz os metodos get and set de todas as propriedades de todas as classes necessarias e reescreve o codigo com sua 
 	  //versao get alguma coisa
-    return new Rectangle((int) (myStyle.indent * scale), 0,
+    return new Rectangle((int) (myStyle.getIndent() * scale), 0,
         (int) (bufferedImage.getWidth(observer) * scale),
-        ((int) (myStyle.leading * scale)) + (int) (bufferedImage.getHeight(observer) * scale));
+        ((int) (myStyle.getLeading() * scale)) + (int) (bufferedImage.getHeight(observer) * scale));
   }
 
   public void draw(int x, int y, float scale, Graphics g, Style myStyle, ImageObserver observer) {
-    int width = x + (int) (myStyle.indent * scale);
-    int height = y + (int) (myStyle.leading * scale);
+    int width = x + (int) (myStyle.getIndent() * scale);
+    int height = y + (int) (myStyle.getLeading() * scale);
 
     g.drawImage(bufferedImage, width, height, (int) (bufferedImage.getWidth(observer) * scale),
         (int) (bufferedImage.getHeight(observer) * scale), observer);
