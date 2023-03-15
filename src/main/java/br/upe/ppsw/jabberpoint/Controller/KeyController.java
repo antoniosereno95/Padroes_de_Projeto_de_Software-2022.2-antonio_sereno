@@ -5,11 +5,13 @@ import java.awt.event.KeyEvent;
 
 import br.upe.ppsw.jabberpoint.Model.Presentation;
 
+
+//notar que no programa rodando, as keys mapeadas pra sair e pra ajuda soa a mesma CRTL + Shft, tem que arrumar isso ai.
 public class KeyController extends KeyAdapter {
 
   private Presentation presentation;
 
-  public KeyController(Presentation p) { //construtor
+  public KeyController(Presentation p) {
     presentation = p;
   }
 
@@ -36,3 +38,4 @@ public class KeyController extends KeyAdapter {
   }
 
 }
+

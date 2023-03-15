@@ -4,8 +4,9 @@ import java.awt.Frame;
 import javax.swing.JOptionPane;
 
 public class AboutBox { //classe sem construtor?
-
-  public static void show(Frame parent) {
+	
+	//metodo statico que diz que ele pode ser utilizado em qualquer lugar sem que seja preciso que instaciamos a classe AboutBox para utiliza-la
+	public static void show(Frame parent) {
     JOptionPane.showMessageDialog(parent,
         "JabberPoint é um programa de apresentação de slides básico escrito em Java(tm).\n"
             + "Ele é disponibilizado como uma cópia livre desde que você mantenha esta informação de splash screen intacta.\n"

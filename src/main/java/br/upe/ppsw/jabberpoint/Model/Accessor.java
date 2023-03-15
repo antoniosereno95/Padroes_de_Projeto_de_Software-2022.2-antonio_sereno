@@ -2,7 +2,8 @@ package br.upe.ppsw.jabberpoint.Model;
 
 import java.io.IOException;
 
-public abstract class Accessor { //classe abstrata com metodos implementados(essa classe ai com return nela)
+//Essa classe aqui pode virar uma interface depois, ja que os seus metodos sao abstratos e precisao sem implementados quando instacianda em outro local
+public abstract class Accessor { //classe abstrata com metodos implementados(essa classe ai com return nela)**(mas é estatica)
 
   public static final String DEMO_NAME = "Apresentação de Demonstração";
   public static final String DEFAULT_EXTENSION = ".xml";

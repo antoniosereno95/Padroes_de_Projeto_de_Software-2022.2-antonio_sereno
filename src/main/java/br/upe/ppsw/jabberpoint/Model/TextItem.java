@@ -71,6 +71,8 @@ public class TextItem extends SlideItem {
   }
  
   //metodo Draw de desneho em tela, esse metodo deve ser colocado em um novo arquivo e posto no packege VIEW!!!
+  //metodo drw tem que organizar com o single responsability, talvez ele vire uma interface ou uma classe a ser instancianda e 
+  //no construtor a pessoa diz qual o tipo de objeto qu elee recebe, talvez acabar usanod o L do solid, onde o pai pode ter comporamnetos do filho e pa.
   public void draw(int x, int y, float scale, Graphics g, Style myStyle, ImageObserver o) {
     if (text == null || text.length() == 0) {
       return;

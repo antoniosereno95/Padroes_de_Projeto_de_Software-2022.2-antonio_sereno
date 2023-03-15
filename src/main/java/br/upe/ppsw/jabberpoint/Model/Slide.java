@@ -48,7 +48,7 @@ public class Slide {
   }
 
   
-  
+  //A classe slide esta deleando aos filhos pra eles se desenharem, e isso é errado.
   
 //------> Daqui pra baixo o codigo faz alteraçoes em tela, e deve ser colocado em um outro arquivo dentro do pacote VIEW  
   public void draw(Graphics g, Rectangle area, ImageObserver view) {

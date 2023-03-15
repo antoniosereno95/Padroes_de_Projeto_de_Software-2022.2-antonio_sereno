@@ -9,11 +9,11 @@ import br.upe.ppsw.jabberpoint.View.Style;
 public abstract class SlideItem {
 
 	
-//como é uma classe abstrata, essas coisas deveriam estar aqui mesmo?	
+//como é uma classe abstrata, essas coisas deveriam estar aqui mesmo? Sim, essas coisas podem estar ai sim.	
   private int level = 0;
 
   public SlideItem(int lev) { //contrutor
-    level = lev; //falta o this
+    this.level = lev; //falta o this
   }
 
   public SlideItem() { //overload no construtor?(metodo maluco)
