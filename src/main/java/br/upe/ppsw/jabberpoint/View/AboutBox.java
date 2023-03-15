@@ -15,3 +15,6 @@ public class AboutBox { //classe sem construtor?
         "Sobre JabberPoint", JOptionPane.INFORMATION_MESSAGE);
   }
 }
+
+
+//Essa é a caixa de ajuda que aparece no canto superior esquerdo da aplicaçao e quando clicada sai um ajanela de aboutbox
