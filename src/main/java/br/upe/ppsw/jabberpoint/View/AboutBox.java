@@ -15,6 +15,6 @@ public class AboutBox { //classe sem construtor?
         "Sobre JabberPoint", JOptionPane.INFORMATION_MESSAGE);
   }
 }
-
+//->>DICA: selecione o metodo especifico, clique crtl + shft + G e o eclipse procura onde o item seleionado esta sendo utilizado
 
 //Essa é a caixa de ajuda que aparece no canto superior esquerdo da aplicaçao e quando clicada sai um ajanela de aboutbox
