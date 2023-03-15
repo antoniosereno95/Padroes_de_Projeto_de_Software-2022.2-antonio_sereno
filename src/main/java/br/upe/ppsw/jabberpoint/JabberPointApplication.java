@@ -39,8 +39,9 @@ public class JabberPointApplication implements CommandLineRunner {
       if (args.length == 0) {
         Accessor.getDemoAccessor().loadFile(presentation, "");
       } else {
-        new XMLAccessor().loadFile(presentation, args[0]);
-      }
+        new XMLAccessor().loadFile(presentation, args[1]); //mudou pro argumento 1 pra poder pegar o argumento passado, pois o argumento 0 é o do springboot
+      }//o negocio desse args é que na inicializaçao do programa, o primeiro argumento éo do spring e o segundo é o paramentro que epassamos,
+      //logo, o caminh opro arquivo que quer ser aberto é o argumento 1 e nao o Zero
 
       presentation.setSlideNumber(0);
 
