@@ -35,7 +35,9 @@ public class SlideViewerComponent extends JComponent {// classes que extendem es
   }
 
   public Dimension getPreferredSize() {
-    return new Dimension(Slide.WIDTH, Slide.HEIGHT);
+    return new Dimension((int)1200.0, (int)800.0);
+    //pra fazer essa refatoraçao aqui, tive que olhar a assinatura do metodo Dimension e fazer
+    //o casting necessario ja que as variaveis estaticas era Double 
   }
 
   public void update(Presentation presentation, Slide data) {

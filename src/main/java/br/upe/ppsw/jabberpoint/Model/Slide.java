@@ -8,10 +8,15 @@ import java.util.Vector;
 import br.upe.ppsw.jabberpoint.View.Style;
 
 public class Slide {
-
+	
+	/*
+	 * 
+	//Essa variaveis estaticas devem ser eliminadas de acordo com a prof(Dica de sala de aula)
 	public final static int WIDTH = 1200;
 	public final static int HEIGHT = 800;
-
+	*
+	*Essa refatoraçao causou erros nos arquivos Slide, textItem e SlideViewerFrame
+	*/
 	protected TextItem title;
 	protected Vector<SlideItem> items;
 
@@ -88,6 +93,6 @@ public class Slide {
 	}
 
 	private float getScale(Rectangle area) {
-		return Math.min(((float) area.width) / ((float) WIDTH), ((float) area.height) / ((float) HEIGHT));
+		return Math.min(((float) area.width) / ((float) 1200.0), ((float) area.height) / ((float) 800.0));
 	}
 }
