@@ -9,71 +9,85 @@ import br.upe.ppsw.jabberpoint.View.Style;
 
 public class Slide {
 
-  public final static int WIDTH = 1200;
-  public final static int HEIGHT = 800;
+	public final static int WIDTH = 1200;
+	public final static int HEIGHT = 800;
 
-  protected TextItem title;
-  protected Vector<SlideItem> items;
+	protected TextItem title;
+	protected Vector<SlideItem> items;
 
-  public Slide() { //contrutor todo tronxo
-    items = new Vector<SlideItem>();
-  }
+	public Slide() { // contrutor todo tronxo
+		items = new Vector<SlideItem>();
+	}
 
-  public void append(SlideItem anItem) {
-    items.addElement(anItem);
-  }
+	/*
+	 * Esses dois metodos tem nomes repetidos e assinaturas diferentes mas eles
+	 * servem para propositos diferentes, nao configurando a situaçao de overload e
+	 * por esse motivo os nomes devem ser especificados -> S do solid.
+	 * 
+	 * public void append(SlideItem anItem) { items.addElement(anItem); }
+	 * 
+	 * public void append(int level, String message) { append(new TextItem(level,
+	 * message)); }
+	 * 
+	 * Essa refatoraçao causou erros nos arquivos XMLAcessor e no DemoPresentacion
+	 */
 
-  public String getTitle() {
-    return title.getText();
-  }
+	public void appendSlideItem(SlideItem anItem) {
+		items.addElement(anItem);
+	}
 
-  public void setTitle(String newTitle) {
-    title = new TextItem(0, newTitle);
-  }
+	public void appendTextItem(int level, String message) {
+		appendSlideItem(new TextItem(level, message));
+	}
 
-  public void append(int level, String message) {
-    append(new TextItem(level, message));
-  }
+	
+	
+	public String getTitle() {
+		return title.getText();
+	}
 
-  public SlideItem getSlideItem(int number) {
-    return (SlideItem) items.elementAt(number);
-  }
+	public void setTitle(String newTitle) {
+		title = new TextItem(0, newTitle);
+	}
 
-  public Vector<SlideItem> getSlideItems() {
-    return items;
-  }
+	public SlideItem getSlideItem(int number) {
+		return (SlideItem) items.elementAt(number);
+	}
 
-  public int getSize() {
-    return items.size();
-  }
+	public Vector<SlideItem> getSlideItems() {
+		return items;
+	}
 
-  
-  //A classe slide esta deleando aos filhos pra eles se desenharem, e isso é errado.
-  
+	public int getSize() {
+		return items.size();
+	}
+
+	// A classe slide esta deleando aos filhos pra eles se desenharem, e isso é
+	// errado.
+
 //------> Daqui pra baixo o codigo faz alteraçoes em tela, e deve ser colocado em um outro arquivo dentro do pacote VIEW  
-  public void draw(Graphics g, Rectangle area, ImageObserver view) {
-    float scale = getScale(area);
+	public void draw(Graphics g, Rectangle area, ImageObserver view) {
+		float scale = getScale(area);
 
-    int y = area.y;
+		int y = area.y;
 
-    SlideItem slideItem = this.title;
-    Style style = Style.getStyle(slideItem.getLevel());
-    slideItem.draw(area.x, y, scale, g, style, view);
+		SlideItem slideItem = this.title;
+		Style style = Style.getStyle(slideItem.getLevel());
+		slideItem.draw(area.x, y, scale, g, style, view);
 
-    y += slideItem.getBoundingBox(g, view, scale, style).height;
+		y += slideItem.getBoundingBox(g, view, scale, style).height;
 
-    for (int number = 0; number < getSize(); number++) {
-      slideItem = (SlideItem) getSlideItems().elementAt(number);
+		for (int number = 0; number < getSize(); number++) {
+			slideItem = (SlideItem) getSlideItems().elementAt(number);
 
-      style = Style.getStyle(slideItem.getLevel());
-      slideItem.draw(area.x, y, scale, g, style, view);
+			style = Style.getStyle(slideItem.getLevel());
+			slideItem.draw(area.x, y, scale, g, style, view);
 
-      y += slideItem.getBoundingBox(g, view, scale, style).height;
-    }
-  }
+			y += slideItem.getBoundingBox(g, view, scale, style).height;
+		}
+	}
 
-  private float getScale(Rectangle area) {
-    return Math.min(((float) area.width) / ((float) WIDTH),
-        ((float) area.height) / ((float) HEIGHT));
-  }
+	private float getScale(Rectangle area) {
+		return Math.min(((float) area.width) / ((float) WIDTH), ((float) area.height) / ((float) HEIGHT));
+	}
 }
