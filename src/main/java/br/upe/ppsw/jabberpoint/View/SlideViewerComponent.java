@@ -33,8 +33,8 @@ public class SlideViewerComponent extends JComponent {// classes que extendem es
 
 	public SlideViewerComponent(Presentation pres, JFrame frame) {
 		setBackground(BGCOLOR);
-		presentation = pres;
-		labelFont = new Font(FONTNAME, FONTSTYLE, FONTHEIGHT);
+		this.presentation = pres;
+		this.labelFont = new Font(FONTNAME, FONTSTYLE, FONTHEIGHT);
 		this.frame = frame;
 	}
 
@@ -73,7 +73,10 @@ public class SlideViewerComponent extends JComponent {// classes que extendem es
 
 		draw(g, area, this);
 	}
-
+	
+	/*
+	 * Esse metodo Draw estava inicialmente la na classe Slide e eu realoquei ela pra ca pq aqui é ond ela é utilizada.
+	 */
 	public void draw(Graphics g, Rectangle area, ImageObserver view) {
 		float scale = getScale(area);
 

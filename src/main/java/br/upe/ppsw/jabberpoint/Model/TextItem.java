@@ -25,7 +25,7 @@ public class TextItem extends SlideItem {
 
   public TextItem(int level, String string) {
     super(level);
-    text = string;
+    this.text = string;
   }
 
   public TextItem() { //aqui ta errado falta o void
@@ -33,17 +33,13 @@ public class TextItem extends SlideItem {
   }
 
   public String getText() {
-    return text == null ? "" : text;
+    return this.text == null ? "" : this.text;
   }
 
   public String toString() {
-	    return "TextItem[" + getLevel() + "," + getText() + "]";
+	    return "TextItem[" + this.getLevel() + "," + this.getText() + "]";
 	  }
-
-
-	  
-	  
-	  
+  
   
   //-->Esses aqui sao metodos que foram implementados por conta da extends SlideItems
   public Rectangle getBoundingBox(Graphics g, ImageObserver observer, float scale, Style myStyle) {

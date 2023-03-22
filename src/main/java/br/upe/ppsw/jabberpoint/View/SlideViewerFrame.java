@@ -15,9 +15,6 @@ public class SlideViewerFrame extends JFrame {
 
   private static final String JABTITLE = "Jabberpoint 1.6";
 
-  public final static int WIDTH = 1200;
-  public final static int HEIGHT = 800;
-
   public SlideViewerFrame(String title, Presentation presentation) {
     super(title);
 
@@ -39,7 +36,7 @@ public class SlideViewerFrame extends JFrame {
     getContentPane().add(slideViewerComponent);
     addKeyListener(new KeyController(presentation));
     setMenuBar(new MenuController(this, presentation));
-    setSize(new Dimension(WIDTH, HEIGHT));
+    setSize(new Dimension(1200, 800));//retirada dos atrubutos estaticos Width e Height
 
     setVisible(true);
   }

@@ -21,7 +21,7 @@ public abstract class SlideItem {
   }
 
   public int getLevel() {
-    return level;
+    return this.level;
   }
 //--final das coisas que o comentario da linha 12 menciona
 

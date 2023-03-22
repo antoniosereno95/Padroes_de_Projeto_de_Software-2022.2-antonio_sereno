@@ -11,18 +11,19 @@ public class Presentation {
 	private SlideViewerComponent slideViewComponent = null;
 	private int currentSlideNumber = 0;
 
+	//construtor vazio
 	public Presentation() {
-		slideViewComponent = null;
+		this.slideViewComponent = null;
 		clear();
 	}
-
+	
 	public Presentation(SlideViewerComponent slideViewerComponent) { // denovo override no construtor?
 		this.slideViewComponent = slideViewerComponent;
 		clear();
 	}
 
 	public int getSize() {
-		return showList.size();
+		return this.showList.size();//faltando o this
 	}
 
 	public String getTitle() {
@@ -30,7 +31,7 @@ public class Presentation {
 	}
 
 	public void setTitle(String nt) {
-		title = nt;
+		this.title = nt; //faltando o this
 	}
 
 	public void setShowView(SlideViewerComponent slideViewerComponent) {
@@ -42,26 +43,26 @@ public class Presentation {
 	}
 
 	public void setSlideNumber(int number) {
-		currentSlideNumber = number;
+		this.currentSlideNumber = number;//faltando o this
 		if (slideViewComponent != null) {
 			slideViewComponent.update(this, getCurrentSlide());
 		}
 	}
 
 	public void prevSlide() {
-		if (currentSlideNumber > 0) {
-			setSlideNumber(currentSlideNumber - 1);
+		if (this.currentSlideNumber > 0) {//faltando o this
+			setSlideNumber(this.currentSlideNumber - 1);
 		}
 	}
 
 	public void nextSlide() {
-		if (currentSlideNumber < (showList.size() - 1)) {
-			setSlideNumber(currentSlideNumber + 1);
+		if (this.currentSlideNumber < (this.showList.size() - 1)) {//faltando o this
+			setSlideNumber(this.currentSlideNumber + 1);
 		}
 	}
 
 	public void clear() { // sem declaraçao de visibilidade(euq q coloquei como public)
-		showList = new ArrayList<Slide>();
+		this.showList = new ArrayList<Slide>();//faltando o this
 		setSlideNumber(-1);
 	}
 
@@ -79,18 +80,18 @@ public class Presentation {
 	 * metodo, ou seja, melhorar entendidmento do codigo e leitura do mesmo.
 	 */
 	public void appendPresentacion(Slide slide) {
-		showList.add(slide);
+		this.showList.add(slide);
 	}
 
 	public Slide getSlide(int number) {
-		if (number < 0 || number >= getSize()) { // inverter esse if pfv
+		if (number < 0 || number >= this.getSize()) { // inverter esse if pfv
 			return null;
 		}
 		return (Slide) showList.get(number);
 	}
 
 	public Slide getCurrentSlide() {
-		return getSlide(currentSlideNumber);
+		return this.getSlide(this.currentSlideNumber);
 	}
 
 	public void exit(int n) {
