@@ -19,7 +19,7 @@ public class MenuController extends MenuBar {
 
   private static final long serialVersionUID = 227L;
 
-  private Frame parent; //??????
+  private Frame parent;
   private Presentation presentation;
 
   protected static final String ABOUT = "Sobre";
@@ -53,7 +53,7 @@ public class MenuController extends MenuBar {
 
     menuItem.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent actionEvent) {
-        presentation.clear();
+        presentation.clear();//inves de clear pode ser uma nova instancia de presentacion
 
         Accessor xmlAccessor = new XMLAccessor();
         try {
