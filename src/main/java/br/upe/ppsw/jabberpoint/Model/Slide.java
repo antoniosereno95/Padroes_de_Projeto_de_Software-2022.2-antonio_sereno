@@ -44,10 +44,18 @@ public class Slide {
 	public void appendTextItem(int level, String message) {
 		appendSlideItem(new TextItem(level, message));
 	}
-
 	
+	public TextItem getTitle() {
+		return title;
+	}
+	/*
+	 *  O metodo getTitle estava retornando uam string mas o atributo title é um TextItem.
+	 *  Mas como o metodo getText() tranforma o title em string, eu decidi manter seu funcionamento
+	 *  padrao so que em outro metodo espéficico para retornar uma string
+	 *  Principio S do solid Single Responsability
+	 */
 	
-	public String getTitle() {
+	public String getTitleText() {
 		return title.getText();
 	}
 
@@ -70,6 +78,7 @@ public class Slide {
 	// A classe slide esta deleando aos filhos pra eles se desenharem, e isso é
 	// errado.
 
+	
 //------> Daqui pra baixo o codigo faz alteraçoes em tela, e deve ser colocado em um outro arquivo dentro do pacote VIEW  
 	public void draw(Graphics g, Rectangle area, ImageObserver view) {
 		float scale = getScale(area);
