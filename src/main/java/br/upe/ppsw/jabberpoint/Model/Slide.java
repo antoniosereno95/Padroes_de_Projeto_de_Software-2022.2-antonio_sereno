@@ -1,11 +1,7 @@
 package br.upe.ppsw.jabberpoint.Model;
 
-import java.awt.Graphics;
-import java.awt.Rectangle;
-import java.awt.image.ImageObserver;
-import java.util.Vector;
 
-import br.upe.ppsw.jabberpoint.View.Style;
+import java.util.Vector;
 
 public class Slide {
 	
@@ -53,6 +49,8 @@ public class Slide {
 	 *  Mas como o metodo getText() tranforma o title em string, eu decidi manter seu funcionamento
 	 *  padrao so que em outro metodo espéficico para retornar uma string
 	 *  Principio S do solid Single Responsability
+	 *  Utilizei a tatica do Dechamps "se vc nao consegue dar um nome especifco para a funcionalidade do metodo
+	 *   ou classe, talvez seja por conta que esse metodo ou classe faz mais de um servico, oq fere o S do solid"
 	 */
 	
 	public String getTitleText() {
@@ -75,33 +73,12 @@ public class Slide {
 		return items.size();
 	}
 
-	// A classe slide esta deleando aos filhos pra eles se desenharem, e isso é
-	// errado.
-
 	
-//------> Daqui pra baixo o codigo faz alteraçoes em tela, e deve ser colocado em um outro arquivo dentro do pacote VIEW  
-	public void draw(Graphics g, Rectangle area, ImageObserver view) {
-		float scale = getScale(area);
-
-		int y = area.y;
-
-		SlideItem slideItem = this.title;
-		Style style = Style.getStyle(slideItem.getLevel());
-		slideItem.draw(area.x, y, scale, g, style, view);
-
-		y += slideItem.getBoundingBox(g, view, scale, style).height;
-
-		for (int number = 0; number < getSize(); number++) {
-			slideItem = (SlideItem) getSlideItems().elementAt(number);
-
-			style = Style.getStyle(slideItem.getLevel());
-			slideItem.draw(area.x, y, scale, g, style, view);
-
-			y += slideItem.getBoundingBox(g, view, scale, style).height;
-		}
-	}
-
-	private float getScale(Rectangle area) {
-		return Math.min(((float) area.width) / ((float) 1200.0), ((float) area.height) / ((float) 800.0));
-	}
+	// A classe slide esta delegando aos filhos pra eles se desenharem, e isso é
+	// errado.
+	/*
+	 * Aqui eu transferi o metodo Draw que desenha em tela e deveria estar acloplado a um codigo Slide que desneha em tela,
+	 * e a classe que faz isso é a SlideViwerComponent, que é exatamente onde o metodo estava sendo utilizado
+	 */
+	
 }
