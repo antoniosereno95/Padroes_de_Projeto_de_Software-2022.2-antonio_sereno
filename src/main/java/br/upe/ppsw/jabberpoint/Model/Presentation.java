@@ -82,20 +82,18 @@ public class Presentation {
 	}
 
 	public Slide getSlide(int number) {
-		
-		if(number > 0 || number < this.getSize()) {
-			return (Slide) showList.get(number);
-		}else {
+
+//		if(number > 0 || number < this.getSize()) {
+//			return (Slide) showList.get(number);
+//		}else {
+//			return null;
+//		}
+
+		if (number < 0 || number >= this.getSize()) { // inverter esse if pfv
 			return null;
 		}
-		
-		/* ->Inverti o IF
-		 	if (number < 0 || number >= this.getSize()) { // inverter esse if pfv
-				return null;
-			}
-			return (Slide) showList.get(number);
-		 */
-		
+		return (Slide) showList.get(number);
+
 	}
 
 	public Slide getCurrentSlide() {
