@@ -2,29 +2,31 @@ package br.upe.ppsw.jabberpoint.Model;
 
 import java.util.ArrayList;
 
-import br.upe.ppsw.jabberpoint.View.SlideViewerComponent;
-
 public class Presentation {
 
 	private String title;
 	private ArrayList<Slide> showList = null;
 	/* ->Vou retirar a instancia do SlideViewer do Model presnetacion por que um modelo nao deve 
 	 * ter que saber se desenhar, existe um componenete na View que sera responsavel por essa logica
+	 * ->A classe Presentacion saber se desnehar e ter essa responsabilidade fere o orincipio do Single 
+	 * Responsability, logo sera refatorada.
+	 * 
+	 * 
 	 * private SlideViewerComponent slideViewComponent = null;
+	 * 
+	 * A refatoração apresentou erros somente na classe Presentacion inicialmente,
+	 *  mas como a responsabilidade vai ser passada pra SlideViewerComponent, entao outros erros
+	 *  devem aparecer no processo de refatoraçao
+	 *  
+	 *  ->Sim, depois de tirar as referencias do SlideViewerComponent aqui da Presentacion inumeros erros foram
+	 *  encontrados na classe.
 	 */
 	private int currentSlideNumber = 0;
 
-	//construtor vazio
 	public Presentation() {
-		this.slideViewComponent = null;
 		clear();
 	}
 	
-	public Presentation(SlideViewerComponent slideViewerComponent) { // denovo override no construtor?
-		this.slideViewComponent = slideViewerComponent;
-		clear();
-	}
-
 	public int getSize() {
 		return this.showList.size();
 	}
@@ -37,19 +39,12 @@ public class Presentation {
 		this.title = nt; 
 	}
 
-	public void setShowView(SlideViewerComponent slideViewerComponent) {
-		this.slideViewComponent = slideViewerComponent;
-	}
-
 	public int getSlideNumber() {
 		return currentSlideNumber;
 	}
 
 	public void setSlideNumber(int number) {
 		this.currentSlideNumber = number;
-		if (slideViewComponent != null) {
-			slideViewComponent.update(this, getCurrentSlide());
-		}
 	}
 
 	public void prevSlide() {
@@ -64,7 +59,7 @@ public class Presentation {
 		}
 	}
 
-	public void clear() { // sem declaraçao de visibilidade(euq q coloquei como public)
+	public void clear() {
 		this.showList = new ArrayList<Slide>();
 		setSlideNumber(-1);
 	}
@@ -87,17 +82,24 @@ public class Presentation {
 	}
 
 	public Slide getSlide(int number) {
-		if (number < 0 || number >= this.getSize()) { // inverter esse if pfv
+		
+		if(number > 0 || number < this.getSize()) {
+			return (Slide) showList.get(number);
+		}else {
 			return null;
 		}
-		return (Slide) showList.get(number);
+		
+		/* ->Inverti o IF
+		 	if (number < 0 || number >= this.getSize()) { // inverter esse if pfv
+				return null;
+			}
+			return (Slide) showList.get(number);
+		 */
+		
 	}
 
 	public Slide getCurrentSlide() {
 		return this.getSlide(this.currentSlideNumber);
 	}
 
-	public void exit(int n) {
-		System.exit(n);
-	}
 }
