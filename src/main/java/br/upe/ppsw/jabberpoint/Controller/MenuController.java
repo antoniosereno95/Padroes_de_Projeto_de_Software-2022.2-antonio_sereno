@@ -17,132 +17,137 @@ import br.upe.ppsw.jabberpoint.View.AboutBox;
 
 public class MenuController extends MenuBar {
 
-  private static final long serialVersionUID = 227L;
+	private static final long serialVersionUID = 227L;
 
-  private Frame parent;
-  private Presentation presentation;
+	private Frame parent;
+	private Presentation presentation;
 
-  protected static final String ABOUT = "Sobre";
-  protected static final String FILE = "Arquivo";
-  protected static final String EXIT = "Sair";
-  protected static final String GOTO = "Pular para";
-  protected static final String HELP = "Ajuda";
-  protected static final String NEW = "Novo"; //new nao é palavra reservada do java??
-  protected static final String NEXT = "Próximo";
-  protected static final String OPEN = "Abrir";
-  protected static final String PAGENR = "Npumero do Slide?";
-  protected static final String PREV = "Anteior";
-  protected static final String SAVE = "Salvar";
-  protected static final String VIEW = "Visualizar";
+	protected static final String ABOUT = "Sobre";
+	protected static final String FILE = "Arquivo";
+	protected static final String EXIT = "Sair";
+	protected static final String GOTO = "Pular para";
+	protected static final String HELP = "Ajuda";
+	protected static final String NEW = "Novo";
+	protected static final String NEXT = "Próximo";
+	protected static final String OPEN = "Abrir";
+	protected static final String PAGENR = "Número do Slide?";
+	protected static final String PREV = "Anterior";
+	protected static final String SAVE = "Salvar";
+	protected static final String VIEW = "Visualizar";
 
-  protected static final String TESTFILE = "classpath:test.xml";
-  protected static final String SAVEFILE = "classpath:dump.xml";
+	protected static final String TESTFILE = "classpath:test.xml";
+	protected static final String SAVEFILE = "classpath:dump.xml";
 
-  protected static final String IOEX = "IO Exception: ";
-  protected static final String LOADERR = "Erro ao carregar";
-  protected static final String SAVEERR = "Erro ao salvar";
+	protected static final String IOEX = "IO Exception: ";
+	protected static final String LOADERR = "Erro ao carregar";
+	protected static final String SAVEERR = "Erro ao salvar";
 
-  public MenuController(Frame frame, Presentation pres) { //construtor?
-    parent = frame;
-    presentation = pres;
+	public MenuController(Frame frame, Presentation pres) { // construtor?
+		parent = frame;
+		presentation = pres;
 
-    MenuItem menuItem;
+		MenuItem menuItem;
 
-    Menu fileMenu = new Menu(FILE);
-    fileMenu.add(menuItem = mkMenuItem(OPEN));
+		Menu fileMenu = new Menu(FILE);
+		fileMenu.add(menuItem = mkMenuItem(OPEN));
 
-    menuItem.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent actionEvent) {
-        presentation.clear();//inves de clear pode ser uma nova instancia de presentacion
+		menuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent actionEvent) {
+				presentation.clear();// inves de clear pode ser uma nova instancia de presentacion
 
-        Accessor xmlAccessor = new XMLAccessor();
-        try {
-          xmlAccessor.loadFile(presentation, ResourceUtils.getFile(TESTFILE).getAbsolutePath());
-          presentation.setSlideNumber(0);
-        } catch (IOException exc) {
-          JOptionPane.showMessageDialog(parent, IOEX + exc, LOADERR, JOptionPane.ERROR_MESSAGE);
-        }
+				Accessor xmlAccessor = new XMLAccessor();
+				try {
+					xmlAccessor.loadFile(presentation, ResourceUtils.getFile(TESTFILE).getAbsolutePath());
+					presentation.setSlideNumber(0);
+				} catch (IOException exc) {
+					JOptionPane.showMessageDialog(parent, IOEX + exc, LOADERR, JOptionPane.ERROR_MESSAGE);
+				}
 
-        parent.repaint();
-      }
-    });
+				parent.repaint();
+			}
+		});
 
-    fileMenu.add(menuItem = mkMenuItem(NEW));
+		fileMenu.add(menuItem = mkMenuItem(NEW));
 
-    menuItem.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent actionEvent) {
-        presentation.clear();
-        parent.repaint();
-      }
-    });
+		menuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent actionEvent) {
+				presentation.clear();
+				parent.repaint();
+			}
+		});
 
-    fileMenu.add(menuItem = mkMenuItem(SAVE));
+		fileMenu.add(menuItem = mkMenuItem(SAVE));
 
-    menuItem.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        Accessor xmlAccessor = new XMLAccessor();
-        try {
-          xmlAccessor.saveFile(presentation, SAVEFILE);
-        } catch (IOException exc) {
-          JOptionPane.showMessageDialog(parent, IOEX + exc, SAVEERR, JOptionPane.ERROR_MESSAGE);
-        }
-      }
-    });
+		menuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Accessor xmlAccessor = new XMLAccessor();
+				try {
+					xmlAccessor.saveFile(presentation, SAVEFILE);
+				} catch (IOException exc) {
+					JOptionPane.showMessageDialog(parent, IOEX + exc, SAVEERR, JOptionPane.ERROR_MESSAGE);
+				}
+			}
+		});
 
-    fileMenu.addSeparator();
+		fileMenu.addSeparator();
 
-    fileMenu.add(menuItem = mkMenuItem(EXIT));
+		fileMenu.add(menuItem = mkMenuItem(EXIT));
 
-    menuItem.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent actionEvent) {
-        presentation.exit(0);
-      }
-    });
+		menuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent actionEvent) {
+				presentation.exit(0);
+			}
+		});
 
-    add(fileMenu);
+		add(fileMenu);
 
-    Menu viewMenu = new Menu(VIEW);
-    viewMenu.add(menuItem = mkMenuItem(NEXT));
+		Menu viewMenu = new Menu(VIEW);
+		viewMenu.add(menuItem = mkMenuItem(NEXT));
 
-    menuItem.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent actionEvent) {
-        presentation.nextSlide();
-      }
-    });
+		menuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent actionEvent) {
+				presentation.nextSlide();
+			}
+		});
 
-    viewMenu.add(menuItem = mkMenuItem(PREV));
+		viewMenu.add(menuItem = mkMenuItem(PREV));
 
-    menuItem.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent actionEvent) {
-        presentation.prevSlide();
-      }
-    });
+		menuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent actionEvent) {
+				presentation.prevSlide();
+			}
+		});
 
-    viewMenu.add(menuItem = mkMenuItem(GOTO));
+		viewMenu.add(menuItem = mkMenuItem(GOTO));
 
-    menuItem.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent actionEvent) {
-        String pageNumberStr = JOptionPane.showInputDialog((Object) PAGENR);
-        int pageNumber = Integer.parseInt(pageNumberStr);
-        presentation.setSlideNumber(pageNumber - 1);
-      }
-    });
+		menuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent actionEvent) {
+				String pageNumberStr = JOptionPane.showInputDialog((Object) PAGENR);
+				int pageNumber = Integer.parseInt(pageNumberStr);
+				if (pageNumber <= presentation.getSize()) {
+					presentation.setSlideNumber(pageNumber - 1);					
+				} else {
+					JOptionPane.showMessageDialog(parent, "Não é possível acessar o slide solicitado.",
+							"Ação inválida", JOptionPane.ERROR_MESSAGE);
+				}
+			}
+		});
 
-    add(viewMenu);
+		add(viewMenu);
 
-    Menu helpMenu = new Menu(HELP);
-    helpMenu.add(menuItem = mkMenuItem(ABOUT));
+		Menu helpMenu = new Menu(HELP);
+		helpMenu.add(menuItem = mkMenuItem(ABOUT));
 
-    menuItem.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent actionEvent) {
-        AboutBox.show(parent);
-      }
-    });
+		menuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent actionEvent) {
+				AboutBox.show(parent);
+			}
+		});
 
-    setHelpMenu(helpMenu);
-  }
+		setHelpMenu(helpMenu);
+	}
 
-  public MenuItem mkMenuItem(String name) {
-    return new MenuItem(name, new MenuShortcut(name.charAt(0)));
-  }
+	public MenuItem mkMenuItem(String name) {
+		return new MenuItem(name, new MenuShortcut(name.charAt(0)));
+	}
 }
