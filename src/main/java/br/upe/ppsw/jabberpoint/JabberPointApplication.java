@@ -16,38 +16,42 @@ import br.upe.ppsw.jabberpoint.View.Style;
 @SpringBootApplication
 public class JabberPointApplication implements CommandLineRunner {
 
-  protected static final String IOERR = "IO Error: ";
-  protected static final String JABERR = "Jabberpoint Error ";
-  protected static final String JABVERSION = "Jabberpoint 1.6 -";
+	protected static final String IOERR = "IO Error: ";
+	protected static final String JABERR = "Jabberpoint Error ";
+	protected static final String JABVERSION = "Jabberpoint 1.6 -";
 
-  public static void main(String[] argv) {
-    SpringApplicationBuilder builder = new SpringApplicationBuilder(JabberPointApplication.class);
-    builder.headless(false);
-    builder.web(WebApplicationType.NONE);
-    builder.run(argv);
-  }
+	public static void main(String[] argv) {
+		SpringApplicationBuilder builder = new SpringApplicationBuilder(JabberPointApplication.class);
+		builder.headless(false);
+		builder.web(WebApplicationType.NONE);
+		builder.run(argv);
+	}
 
-  @Override
-  public void run(String... args) throws Exception {
-    Style.createStyles();
+	@Override
+	public void run(String... args) throws Exception {
+		Style.createStyles();
 
-    Presentation presentation = new Presentation();
+		Presentation presentation = new Presentation();
 
-    new SlideViewerFrame(JABVERSION, presentation);
+		// new SlideViewerFrame(JABVERSION, presentation);
 
-    try {
-      if (args.length == 0) {
-        Accessor.getDemoAccessor().loadFile(presentation, "");
-      } else {
-        new XMLAccessor().loadFile(presentation, args[1]); //mudou pro argumento 1 pra poder pegar o argumento passado, pois o argumento 0 é o do springboot
-      }//o negocio desse args é que na inicializaçao do programa, o primeiro argumento éo do spring e o segundo é o paramentro que epassamos,
-      //logo, o caminh opro arquivo que quer ser aberto é o argumento 1 e nao o Zero
+		try {
+			new SlideViewerFrame(JABVERSION, presentation);
 
-      presentation.setSlideNumber(0);
+			if (args.length == 0) {
+				Accessor.getDemoAccessor().loadFile(presentation, "");
+			} else {
+				new XMLAccessor().loadFile(presentation, args[1]); // mudou pro argumento 1 pra poder pegar o argumento
+																	// passado, pois o argumento 0 é o do springboot
+			} // o negocio desse args é que na inicializaçao do programa, o primeiro argumento
+				// éo do spring e o segundo é o paramentro que epassamos,
+				// logo, o caminh opro arquivo que quer ser aberto é o argumento 1 e nao o Zero
 
-    } catch (IOException ex) {
-      JOptionPane.showMessageDialog(null, IOERR + ex, JABERR, JOptionPane.ERROR_MESSAGE);
-    }
-  }
+			presentation.setSlideNumber(0);
+
+		} catch (IOException ex) {
+			JOptionPane.showMessageDialog(null, IOERR + ex, JABERR, JOptionPane.ERROR_MESSAGE);
+		}
+	}
 
 }

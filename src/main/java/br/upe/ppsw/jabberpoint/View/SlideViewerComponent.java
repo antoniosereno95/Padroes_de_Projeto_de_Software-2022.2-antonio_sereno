@@ -44,15 +44,11 @@ public class SlideViewerComponent extends JComponent {// classes que extendem es
 		// Dimension e fazer
 		// o casting necessario ja que as variaveis estaticas era Double
 	}
-
-	public void update(Presentation presentation, Slide data) {
-		if (data == null) {
-			repaint();
-			return;
-		}
-
-		this.presentation = presentation;
-		this.slide = data;
+	
+	//refatorei
+	public void update() { 
+		this.slide = presentation.getCurrentSlide();
+		
 		repaint();
 		frame.setTitle(presentation.getTitle());
 	}
