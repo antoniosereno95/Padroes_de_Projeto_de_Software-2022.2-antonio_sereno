@@ -14,6 +14,7 @@ import org.springframework.util.ResourceUtils;
 import br.upe.ppsw.jabberpoint.Model.Accessor;
 import br.upe.ppsw.jabberpoint.Model.Presentation;
 import br.upe.ppsw.jabberpoint.View.AboutBox;
+import br.upe.ppsw.jabberpoint.View.SlideViewerComponent;
 
 public class MenuController extends MenuBar {
 
@@ -21,6 +22,7 @@ public class MenuController extends MenuBar {
 
 	private Frame parent;
 	private Presentation presentation;
+	private SlideViewerComponent slideViewerComponent;
 
 	protected static final String ABOUT = "Sobre";
 	protected static final String FILE = "Arquivo";
@@ -42,9 +44,12 @@ public class MenuController extends MenuBar {
 	protected static final String LOADERR = "Erro ao carregar";
 	protected static final String SAVEERR = "Erro ao salvar";
 
-	public MenuController(Frame frame, Presentation pres) { // construtor?
-		parent = frame;
-		presentation = pres;
+	// fui obrigado a ja inicializar um SVC aqui, ja que antes era o Presentacion
+	// que inicalizava ele quando ia se desnehar em tela
+	public MenuController(Frame frame, Presentation pres, SlideViewerComponent svc) {
+		this.parent = frame;
+		this.presentation = pres;
+		this.slideViewerComponent = svc;
 
 		MenuItem menuItem;
 
@@ -53,7 +58,7 @@ public class MenuController extends MenuBar {
 
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
-				presentation.clear();// inves de clear pode ser uma nova instancia de presentacion
+				presentation.clear();
 
 				Accessor xmlAccessor = new XMLAccessor();
 				try {
@@ -95,7 +100,7 @@ public class MenuController extends MenuBar {
 
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
-				presentation.exit(0);
+				System.exit(0);
 			}
 		});
 
@@ -107,6 +112,7 @@ public class MenuController extends MenuBar {
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
 				presentation.nextSlide();
+				slideViewerComponent.update();
 			}
 		});
 
@@ -115,6 +121,7 @@ public class MenuController extends MenuBar {
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
 				presentation.prevSlide();
+				slideViewerComponent.update();
 			}
 		});
 
@@ -124,11 +131,12 @@ public class MenuController extends MenuBar {
 			public void actionPerformed(ActionEvent actionEvent) {
 				String pageNumberStr = JOptionPane.showInputDialog((Object) PAGENR);
 				int pageNumber = Integer.parseInt(pageNumberStr);
-				if (pageNumber >= 0 && pageNumber <= presentation.getSize() ) {
-					presentation.setSlideNumber(pageNumber - 1);					
+				if (pageNumber >= 0 && pageNumber <= presentation.getSize()) {
+					presentation.setSlideNumber(pageNumber - 1);
+					slideViewerComponent.update();
 				} else {
-					JOptionPane.showMessageDialog(parent, "Não é possível acessar o slide solicitado.",
-							"Ação inválida", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(parent, "Não é possível acessar o slide solicitado.", "Ação inválida",
+							JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		});

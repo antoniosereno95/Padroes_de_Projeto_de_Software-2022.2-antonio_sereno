@@ -8,37 +8,36 @@ import br.upe.ppsw.jabberpoint.Controller.KeyController;
 import br.upe.ppsw.jabberpoint.Controller.MenuController;
 import br.upe.ppsw.jabberpoint.Model.Presentation;
 
-
 public class SlideViewerFrame extends JFrame {
 
-  private static final long serialVersionUID = 3227L;
+	private static final long serialVersionUID = 3227L;
 
-  private static final String JABTITLE = "Jabberpoint 1.6";
+	private static final String JABTITLE = "Jabberpoint 1.6";
 
-  public SlideViewerFrame(String title, Presentation presentation) {
-    super(title);
+	public SlideViewerFrame(String title, Presentation presentation) {
+		super(title);
 
-    SlideViewerComponent slideViewerComponent = new SlideViewerComponent(presentation, this);
+		SlideViewerComponent slideViewerComponent = new SlideViewerComponent(presentation, this);
 
-    setupWindow(slideViewerComponent, presentation);
-    slideViewerComponent.update();
-  }
+		setupWindow(slideViewerComponent, presentation);
+		slideViewerComponent.update();
+	}
 
-  public void setupWindow(SlideViewerComponent slideViewerComponent, Presentation presentation) {
-    setTitle(JABTITLE);
+	public void setupWindow(SlideViewerComponent slideViewerComponent, Presentation presentation) {
+		setTitle(JABTITLE);
 
-    addWindowListener(new WindowAdapter() {
-      public void windowClosing(WindowEvent e) {
-        System.exit(0);
-      }
-    });
+		addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
+				System.exit(0);
+			}
+		});
 
-    getContentPane().add(slideViewerComponent);
-    addKeyListener(new KeyController(presentation));
-    setMenuBar(new MenuController(this, presentation));
-    setSize(new Dimension(1200, 800));
+		getContentPane().add(slideViewerComponent);
+		addKeyListener(new KeyController(presentation));
+		setMenuBar(new MenuController(this, presentation, slideViewerComponent));
+		setSize(new Dimension(1200, 800));
 
-    setVisible(true);
-  }
-  
+		setVisible(true);
+	}
+
 }
