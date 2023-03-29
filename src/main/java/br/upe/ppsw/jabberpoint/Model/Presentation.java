@@ -8,7 +8,10 @@ public class Presentation {
 
 	private String title;
 	private ArrayList<Slide> showList = null;
-	private SlideViewerComponent slideViewComponent = null;
+	/* ->Vou retirar a instancia do SlideViewer do Model presnetacion por que um modelo nao deve 
+	 * ter que saber se desenhar, existe um componenete na View que sera responsavel por essa logica
+	 * private SlideViewerComponent slideViewComponent = null;
+	 */
 	private int currentSlideNumber = 0;
 
 	//construtor vazio
@@ -23,7 +26,7 @@ public class Presentation {
 	}
 
 	public int getSize() {
-		return this.showList.size();//faltando o this
+		return this.showList.size();
 	}
 
 	public String getTitle() {
@@ -31,7 +34,7 @@ public class Presentation {
 	}
 
 	public void setTitle(String nt) {
-		this.title = nt; //faltando o this
+		this.title = nt; 
 	}
 
 	public void setShowView(SlideViewerComponent slideViewerComponent) {
@@ -43,26 +46,26 @@ public class Presentation {
 	}
 
 	public void setSlideNumber(int number) {
-		this.currentSlideNumber = number;//faltando o this
+		this.currentSlideNumber = number;
 		if (slideViewComponent != null) {
 			slideViewComponent.update(this, getCurrentSlide());
 		}
 	}
 
 	public void prevSlide() {
-		if (this.currentSlideNumber > 0) {//faltando o this
+		if (this.currentSlideNumber > 0) {
 			setSlideNumber(this.currentSlideNumber - 1);
 		}
 	}
 
 	public void nextSlide() {
-		if (this.currentSlideNumber < (this.showList.size() - 1)) {//faltando o this
+		if (this.currentSlideNumber < (this.showList.size() - 1)) {
 			setSlideNumber(this.currentSlideNumber + 1);
 		}
 	}
 
 	public void clear() { // sem declaraçao de visibilidade(euq q coloquei como public)
-		this.showList = new ArrayList<Slide>();//faltando o this
+		this.showList = new ArrayList<Slide>();
 		setSlideNumber(-1);
 	}
 
