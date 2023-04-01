@@ -36,13 +36,13 @@ public class JabberPointApplication implements CommandLineRunner {
 		// new SlideViewerFrame(JABVERSION, presentation);
 
 		try {
-			if (args.length == 0) {
-				Accessor.getDemoAccessor().loadFile(presentation, "");
+			if (args.length > 1) {
+				new XMLAccessor().loadFile(presentation, args[1]);
 			} else {
-				new XMLAccessor().loadFile(presentation, args[1]); 
+				Accessor.getDemoAccessor().loadFile(presentation, "");
 			} 
 			
-			presentation.setSlideNumber(0);
+			presentation.setSlideNumber(1);
 			new SlideViewerFrame(JABVERSION, presentation);
 		} catch (IOException ex) {
 			JOptionPane.showMessageDialog(null, IOERR + ex, JABERR, JOptionPane.ERROR_MESSAGE);
