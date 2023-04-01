@@ -42,7 +42,7 @@ public class JabberPointApplication implements CommandLineRunner {
 				Accessor.getDemoAccessor().loadFile(presentation, "");
 			} 
 			
-			presentation.setSlideNumber(1);
+			presentation.setSlideNumber(0);
 			new SlideViewerFrame(JABVERSION, presentation);
 		} catch (IOException ex) {
 			JOptionPane.showMessageDialog(null, IOERR + ex, JABERR, JOptionPane.ERROR_MESSAGE);

@@ -38,12 +38,12 @@ public class SlideViewerComponent extends JComponent {// classes que extendem es
 		this.frame = frame;
 	}
 
-	public Dimension getPreferredSize() {
-		return new Dimension((int) 1200.0, (int) 800.0);
-		// pra fazer essa refatoraçao aqui, tive que olhar a assinatura do metodo
-		// Dimension e fazer
-		// o casting necessario ja que as variaveis estaticas era Double
-	}
+//	public Dimension getPreferredSize() {
+//		return new Dimension((int) 1200.0, (int) 800.0);
+//		// pra fazer essa refatoraçao aqui, tive que olhar a assinatura do metodo
+//		// Dimension e fazer
+//		// o casting necessario ja que as variaveis estaticas era Double
+//	}
 	
 	//refatorei
 	public void update() { 
