@@ -83,7 +83,7 @@ public class Presentation {
 
 	public Slide getSlide(int number) {
 
-//		if(number > 0 || number < this.getSize()) {
+//		if(number > 0 && number < this.getSize()) {
 //			return (Slide) showList.get(number);
 //		}else {
 //			return null;
