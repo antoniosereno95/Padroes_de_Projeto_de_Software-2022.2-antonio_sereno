@@ -1,6 +1,7 @@
 package br.upe.ppsw.jabberpoint.View;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Rectangle;
@@ -13,8 +14,9 @@ import br.upe.ppsw.jabberpoint.Model.Presentation;
 import br.upe.ppsw.jabberpoint.Model.Slide;
 import br.upe.ppsw.jabberpoint.Model.SlideItem;
 
-public class SlideViewerComponent extends JComponent {
+public class SlideViewerComponent extends JComponent {// classes que extendem esse JComponent sao todas de VIEW
 
+	// esses atributos estaticos tem que ser eliminados ao maximo.
 	private static final long serialVersionUID = 227L;
 	private static final Color BGCOLOR = Color.white;
 	private static final Color COLOR = Color.black;
@@ -28,7 +30,6 @@ public class SlideViewerComponent extends JComponent {
 	private Font labelFont = null;
 	private Presentation presentation = null;
 	private JFrame frame = null;
-	public Pintor pintor;
 
 	public SlideViewerComponent(Presentation pres, JFrame frame) {
 		setBackground(BGCOLOR);
@@ -36,18 +37,22 @@ public class SlideViewerComponent extends JComponent {
 		this.labelFont = new Font(FONTNAME, FONTSTYLE, FONTHEIGHT);
 		this.frame = frame;
 	}
+
+//	public Dimension getPreferredSize() {
+//		return new Dimension((int) 1200.0, (int) 800.0);
+//		// pra fazer essa refatoraçao aqui, tive que olhar a assinatura do metodo
+//		// Dimension e fazer
+//		// o casting necessario ja que as variaveis estaticas era Double
+//	}
 	
+	//refatorei
 	public void update() { 
 		this.slide = presentation.getCurrentSlide();
 		
 		repaint();
 		frame.setTitle(presentation.getTitle());
 	}
-	
-	private float getScale(Rectangle area) {
-		return Math.min(((float) area.width) / ((float) slide.getWidth()), ((float) area.height) / ((float) slide.getHeight()));
-	}
-	
+
 	public void paintComponent(Graphics g) {
 		g.setColor(BGCOLOR);
 		g.fillRect(0, 0, getSize().width, getSize().height);
@@ -65,26 +70,32 @@ public class SlideViewerComponent extends JComponent {
 		draw(g, area, this);
 	}
 	
+	/*
+	 * Esse metodo Draw estava inicialmente la na classe Slide e eu realoquei ela pra ca pq aqui é ond ela é utilizada.
+	 */
 	public void draw(Graphics g, Rectangle area, ImageObserver view) {
-		  
-	    float scale = getScale(area);
+		float scale = getScale(area);
 
-	    int y = area.y;
+		int y = area.y;
 
-	    SlideItem slideItem = this.title;
+		SlideItem slideItem = slide.getTitle();
+		Style style = Style.getStyle(slideItem.getLevel());
+		slideItem.draw(area.x, y, scale, g, style, view);
 
-	    slideItem.draw(area.x, y, scale, g, view);
+		y += slideItem.getBoundingBox(g, view, scale, style).height;
 
-	    y += slideItem.getBoundingBox(g, view, scale).height;
+		for (int number = 0; number < slide.getSize(); number++) {
+			slideItem = (SlideItem) slide.getSlideItems().elementAt(number);
 
-	    for (int number = 0; number < getSize(); number++) {
-	      slideItem = (SlideItem) getSlideItems().elementAt(number);
+			style = Style.getStyle(slideItem.getLevel());
+			slideItem.draw(area.x, y, scale, g, style, view);
 
-	      slideItem.draw(area.x, y, scale, g, view);
+			y += slideItem.getBoundingBox(g, view, scale, style).height;
+		}
+	}
 
-	      y += slideItem.getBoundingBox(g, view, scale).height;
-	    }
-	  }
-
+	private float getScale(Rectangle area) {
+		return Math.min(((float) area.width) / ((float) 1200.0), ((float) area.height) / ((float) 800.0));
+	}
 
 }

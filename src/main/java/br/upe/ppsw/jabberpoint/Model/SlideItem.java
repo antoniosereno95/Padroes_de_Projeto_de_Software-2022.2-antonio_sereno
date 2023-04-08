@@ -4,31 +4,33 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.ImageObserver;
 
-import br.upe.ppsw.jabberpoint.View.Pintor;
+import br.upe.ppsw.jabberpoint.View.Style;
 
 public abstract class SlideItem {
 
-	protected Pintor pintor; // Protected pq como é no mesmo package ai nao da erro.
+	
+//como é uma classe abstrata, essas coisas deveriam estar aqui mesmo? Sim, essas coisas podem estar ai sim.	
+  private int level = 0;
 
-	private int level = 0;
+  public SlideItem(int lev) { //contrutor
+    this.level = lev; //falta o this
+  }
 
-	public SlideItem(int lev) {
-		this.level = lev;
-	}
+  public SlideItem() { //overload no construtor?(metodo maluco)
+    this(0); //this oq?
+  }
 
-	public SlideItem() {
-		this(0);
-	}
+  public int getLevel() {
+    return this.level;
+  }
+//--final das coisas que o comentario da linha 12 menciona
 
-	public int getLevel() {
-		return this.level;
-	}
+  
+  
+  public abstract Rectangle getBoundingBox(Graphics g, ImageObserver observer, float scale,
+      Style style);
 
-	public abstract Rectangle getBoundingBox(Graphics g, ImageObserver observer, float scale);
-
-	public void draw(int x, int y, float scale, Graphics g, ImageObserver observer) {
-	   
-		pintor.draw(x, y, scale, g, observer, this);
-	}
+  public abstract void draw(int x, int y, float scale, Graphics g, Style style,
+      ImageObserver observer);
 
 }
