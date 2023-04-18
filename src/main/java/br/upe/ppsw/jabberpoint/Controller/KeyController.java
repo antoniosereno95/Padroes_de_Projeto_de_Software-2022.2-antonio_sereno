@@ -23,13 +23,15 @@ public class KeyController extends KeyAdapter {
       case KeyEvent.VK_PAGE_DOWN:
       case KeyEvent.VK_DOWN:
       case KeyEvent.VK_ENTER:
-      case '+':
+      case KeyEvent.VK_SPACE:
+      case KeyEvent.VK_RIGHT:
         presentation.nextSlide();
         this.slideViewerComponent.update();
         break;
       case KeyEvent.VK_PAGE_UP:
       case KeyEvent.VK_UP:
-      case '-':
+      case KeyEvent.VK_LEFT:
+      case KeyEvent.VK_BACK_SPACE:
         presentation.prevSlide();
         this.slideViewerComponent.update();
         break;

@@ -19,9 +19,9 @@ public class DemoPresentation extends Accessor {
 		slide.appendTextItem(4, "JabberPoint execução de demonstração sem arquivos persistidos(Aplicação em formato .JAR)");
 		slide.appendTextItem(4, "exibição de apresentação com dados apenas em memória");
 		slide.appendTextItem(1, "Como Navegar pelo Sistema:");
-		slide.appendTextItem(3, "Próximo slide: Setinha pra Baixo ou Enter");
-		slide.appendTextItem(3, "Slide Anterior: Setinha pra Cima ou up-arrow");
-		slide.appendTextItem(3, "Parar: ESC (escape)");
+		slide.appendTextItem(3, "Próximo slide: Setinha pra Baixo, Enter, Setinha para Direita ou Barra de Espaço");
+		slide.appendTextItem(3, "Slide Anterior: Setinha pra Cima, Back-Space ou Setinha para a Esquerda");
+		slide.appendTextItem(3, "Fechar Aplicação: ESC (escape)");
 		presentation.appendPresentacion(slide);
 
 		slide = new Slide();
