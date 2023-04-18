@@ -12,17 +12,16 @@ public class DemoPresentation extends Accessor {
 		Slide slide;
 		slide = new Slide();
 
-		slide.setTitle("JabberPoint");
+		slide.setTitle("JabberPoint 1.07");
 		slide.appendTextItem(1, "Ferramenta de Apresentação de Slides");
-		slide.appendTextItem(2, "Copyright (c) 1996-now: Ian Darwin");
-		slide.appendTextItem(2, "Copyright (c) 2021-now:");
-		slide.appendTextItem(2, "Helaine Barreiros");
-		slide.appendTextItem(4, "JabberPoint execução de demonstração sem arquivos persistidos");
+		slide.appendTextItem(2, "Copyright (c) 2021-2022: Helaine Barreiros");
+		slide.appendTextItem(2, "Copyright (c) 2022-now: Antonio Sereno");
+		slide.appendTextItem(4, "JabberPoint execução de demonstração sem arquivos persistidos(Aplicação em formato .JAR)");
 		slide.appendTextItem(4, "exibição de apresentação com dados apenas em memória");
-		slide.appendTextItem(1, "Navegação:");
-		slide.appendTextItem(3, "Próximo slide: PgDn ou Enter");
-		slide.appendTextItem(3, "Slide Anterior: PgUp ou up-arrow");
-		slide.appendTextItem(3, "Parar: q ou Q");
+		slide.appendTextItem(1, "Como Navegar pelo Sistema:");
+		slide.appendTextItem(3, "Próximo slide: Setinha pra Baixo ou Enter");
+		slide.appendTextItem(3, "Slide Anterior: Setinha pra Cima ou up-arrow");
+		slide.appendTextItem(3, "Parar: ESC (escape)");
 		presentation.appendPresentacion(slide);
 
 		slide = new Slide();

@@ -33,10 +33,9 @@ public class KeyController extends KeyAdapter {
         presentation.prevSlide();
         this.slideViewerComponent.update();
         break;
-      case 'q':
-      case 'Q':
+      case KeyEvent.VK_ESCAPE:
         System.exit(0);
-        break; // fix?
+        break; //mudei a tecla de sair, esc é bem melhor
       default:
         break;
     }
