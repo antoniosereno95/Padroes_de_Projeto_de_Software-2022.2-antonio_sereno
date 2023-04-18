@@ -161,6 +161,6 @@ public class MenuController extends MenuBar {
 	}
 
 	public MenuItem mkMenuItem(String name) {
-		return new MenuItem(name, new MenuShortcut(name.charAt(0)));
+		return new MenuItem(name);
 	}
 }
