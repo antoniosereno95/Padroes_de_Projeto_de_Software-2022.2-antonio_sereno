@@ -6,8 +6,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-
-import br.upe.ppsw.jabberpoint.Controller.Accessor;
 import br.upe.ppsw.jabberpoint.Controller.XMLAccessor;
 import br.upe.ppsw.jabberpoint.Model.Presentation;
 import br.upe.ppsw.jabberpoint.View.SlideViewerFrame;
@@ -32,14 +30,15 @@ public class JabberPointApplication implements CommandLineRunner {
 		Style.createStyles();
 
 		Presentation presentation = new Presentation();
+		XMLAccessor xmlAccessor = new XMLAccessor();
 
 		// new SlideViewerFrame(JABVERSION, presentation);
 
 		try {
 			if (args.length > 1) {
-				new XMLAccessor().loadFile(presentation, args[1]);
+				xmlAccessor.loadFile(presentation, args[1]);
 			} else {
-				Accessor.getDemoAccessor().loadFile(presentation, "");
+				xmlAccessor.getDemoAccessor().loadFile(presentation, "");
 			} 
 			
 			presentation.setSlideNumber(0);
