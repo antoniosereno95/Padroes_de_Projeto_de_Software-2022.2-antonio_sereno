@@ -66,7 +66,5 @@ public class SlideViewerComponent extends JComponent {
 
 		slidePintor.draw(g, area, this);
 	}
-
-	
 	
 }
