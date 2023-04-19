@@ -15,6 +15,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import br.upe.ppsw.jabberpoint.Model.BitmapItem;
+import br.upe.ppsw.jabberpoint.Model.DemoPresentation;
 import br.upe.ppsw.jabberpoint.Model.Presentation;
 import br.upe.ppsw.jabberpoint.Model.Slide;
 import br.upe.ppsw.jabberpoint.Model.SlideItem;
@@ -153,6 +154,10 @@ public class XMLAccessor implements AcessorLoad , AcessorSave { //Interface Segr
 		out.println("</presentation>");
 
 		out.close();
+	}
+	
+	public XMLAccessor getDemoAccessor() {
+		return new DemoPresentation();
 	}
 
 }

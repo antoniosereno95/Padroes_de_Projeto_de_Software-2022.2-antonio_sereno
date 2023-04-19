@@ -3,11 +3,11 @@ package br.upe.ppsw.jabberpoint.Model;
 import java.util.ArrayList;
 
 public class Presentation {
-	
+
 	private String title;
 	private ArrayList<Slide> showList = null;
 
-	protected int currentSlideNumber = 0;
+	private int currentSlideNumber = 0;
 
 	public Presentation() {
 		clear();

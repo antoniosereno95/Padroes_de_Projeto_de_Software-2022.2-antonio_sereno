@@ -1,6 +1,8 @@
 package br.upe.ppsw.jabberpoint.Controller;
 
 import java.io.IOException;
+
+import br.upe.ppsw.jabberpoint.Model.DemoPresentation;
 import br.upe.ppsw.jabberpoint.Model.Presentation;
 
 public interface AcessorLoad {//Interface Segregacion e tambem Silgle Responsibility
