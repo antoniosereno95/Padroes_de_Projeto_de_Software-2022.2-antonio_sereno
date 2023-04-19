@@ -12,7 +12,7 @@ import org.springframework.util.ResourceUtils;
 
 import br.upe.ppsw.jabberpoint.View.Style;
 
-public class BitmapItem extends SlideItem {
+public class BitmapItem  extends SlideItem  {
 
   private BufferedImage bufferedImage;
   private String imageName;
@@ -20,20 +20,20 @@ public class BitmapItem extends SlideItem {
   protected static final String FILE = "Arquivo ";
   protected static final String NOTFOUND = " não encontrado";
 
-  public BitmapItem(int level, String name) { //construtor
+  public BitmapItem(int level, String name) { 
     super(level);
 
-    imageName = name;
+    setImageName(name);
 
     try {
       bufferedImage = ImageIO.read(ResourceUtils.getFile(imageName).getAbsoluteFile());
     } catch (IOException e) {
-      System.err.println(FILE + imageName + NOTFOUND);
+      System.err.println(FILE + getImageName() + NOTFOUND);
     }
 
   }
 
-  public BitmapItem() { //Segundo construtor?
+  public BitmapItem() { 
     this(0, null);
   }
 
@@ -42,29 +42,31 @@ public class BitmapItem extends SlideItem {
   }
 
   public String toString() {
-    return "BitmapItem[" + getLevel() + "," + imageName + "]";
+    return "BitmapItem[" + getLevel() + "," + getImageName() + "]";
   }
   
   
   
+  public BufferedImage getBufferedImage() {
+	return bufferedImage;
+}
+
+public void setBufferedImage(BufferedImage bufferedImage) {
+	this.bufferedImage = bufferedImage;
+}
+
+public String getImageName() {
+	return imageName;
+}
+
+public void setImageName(String imageName) {
+	this.imageName = imageName;
+}
+
+public Rectangle getBoundingBox(Graphics g, ImageObserver observer, float scale, Style myStyle) { 
+	    return new Rectangle((int) (myStyle.getIndent() * scale), 0,
+	        (int) (getBufferedImage().getWidth(observer) * scale),
+	        ((int) (myStyle.getLeading() * scale)) + (int) (getBufferedImage().getHeight(observer) * scale));
+	  }
   
-
-  //------> Daqui pra baixo o codigo faz alteraçoes em tela, e deve ser colocado em um outro arquivo dentro do pacote VIEW
-  public Rectangle getBoundingBox(Graphics g, ImageObserver observer, float scale, Style myStyle) { 
-	  //pra resolver o problema aqui do acesso aos metodos da classe Style, ou muda a visibilidade da propriedade(nao recomendado),
-	  //ou entao faz os metodos get and set de todas as propriedades de todas as classes necessarias e reescreve o codigo com sua 
-	  //versao get alguma coisa
-    return new Rectangle((int) (myStyle.getIndent() * scale), 0,
-        (int) (bufferedImage.getWidth(observer) * scale),
-        ((int) (myStyle.getLeading() * scale)) + (int) (bufferedImage.getHeight(observer) * scale));
-  }
-
-  public void draw(int x, int y, float scale, Graphics g, Style myStyle, ImageObserver observer) {
-    int width = x + (int) (myStyle.getIndent() * scale);
-    int height = y + (int) (myStyle.getLeading() * scale);
-
-    g.drawImage(bufferedImage, width, height, (int) (bufferedImage.getWidth(observer) * scale),
-        (int) (bufferedImage.getHeight(observer) * scale), observer);
-  }
-
 }

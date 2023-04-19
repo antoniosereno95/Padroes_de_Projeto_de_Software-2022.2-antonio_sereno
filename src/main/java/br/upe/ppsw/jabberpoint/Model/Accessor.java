@@ -8,9 +8,9 @@ public abstract class Accessor { //classe abstrata com metodos implementados(ess
   public static final String DEMO_NAME = "Apresentação de Demonstração";
   public static final String DEFAULT_EXTENSION = ".xml";
 
-  public static Accessor getDemoAccessor() {
-    return new DemoPresentation();
-  }
+//  public static Accessor getDemoAccessor() {
+//    return new DemoPresentation();
+//  }
 
   public Accessor() {} //classe abstrata
 

@@ -44,7 +44,12 @@ public class DemoPresentation extends Accessor {
 		slide.appendSlideItem(new BitmapItem(1, ResourceUtils.getFile("classpath:JabberPoint.jpg").getAbsolutePath()));
 		presentation.appendPresentacion(slide);
 	}
-
+	
+	public static Accessor getDemoAccessor() {
+	    return new DemoPresentation();
+	  }
+	
+	//talvez demo presentacions nao precise saber se salvar 
 	public void saveFile(Presentation presentation, String unusedFilename) {
 		throw new IllegalStateException("Não é possível salvar arquivo na versão demo!");
 	}

@@ -25,12 +25,4 @@ public abstract class SlideItem {
   }
 //--final das coisas que o comentario da linha 12 menciona
 
-  
-  
-  public abstract Rectangle getBoundingBox(Graphics g, ImageObserver observer, float scale,
-      Style style);
-
-  public abstract void draw(int x, int y, float scale, Graphics g, Style style,
-      ImageObserver observer);
-
 }
