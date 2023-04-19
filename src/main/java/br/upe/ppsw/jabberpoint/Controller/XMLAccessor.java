@@ -101,10 +101,10 @@ public class XMLAccessor implements AcessorLoad, AcessorSave { // Interface Segr
 
 		String type = attributes.getNamedItem(KIND).getTextContent();
 		if (TEXT.equals(type)) {
-			slide.appendSlideItem(new TextItem(level, item.getTextContent())); // refatorado
+			slide.appendSlideItem(new TextItem(level, item.getTextContent())); 
 		} else {
 			if (IMAGE.equals(type)) {
-				slide.appendSlideItem(new BitmapItem(level, item.getTextContent())); // refatorado
+				slide.appendSlideItem(new BitmapItem(level, item.getTextContent())); 
 			} else {
 				System.err.println(UNKNOWNTYPE);
 			}
