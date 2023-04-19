@@ -15,7 +15,7 @@ public class SlidePintor {
         this.slide = slide;
     }
 
-    public void draw(Graphics g, Rectangle area, ImageObserver view) {
+    public void Desenha(Graphics g, Rectangle area, ImageObserver view) {
         float scale = this.getScale(area);
     
         int y = area.y;
@@ -26,7 +26,7 @@ public class SlidePintor {
 
         Style style = Style.getStyle(slideItem.getLevel());
 
-        slideItemPintor.draw(area.x, y, scale, g, style, view);
+        slideItemPintor.Desenha(area.x, y, scale, g, style, view);
     
         y += slideItem.getBoundingBox(g, view, scale, style).height;
     
@@ -37,7 +37,7 @@ public class SlidePintor {
 
           style = Style.getStyle(slideItem.getLevel());
 
-          slideItemPintor.draw(area.x, y, scale, g, style, view);
+          slideItemPintor.Desenha(area.x, y, scale, g, style, view);
     
           y += slideItem.getBoundingBox(g, view, scale, style).height;
         }

@@ -64,7 +64,7 @@ public class SlideViewerComponent extends JComponent {
 
 		SlidePintor slidePintor = new SlidePintor(slide);
 
-		slidePintor.draw(g, area, this);
+		slidePintor.Desenha(g, area, this);
 	}
 	
 }

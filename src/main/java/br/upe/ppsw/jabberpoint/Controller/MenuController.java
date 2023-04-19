@@ -150,6 +150,7 @@ public class MenuController extends MenuBar {
 								+ "Ele é disponibilizado como uma cópia livre desde que você mantenha esta informação de splash screen intacta.\n"
 								+ "Copyright (c) 1995-now by Ian F. Darwin, ian@darwinsys.com.\n"
 								+ "Adaptada por Helaine Barreiros fpara Universidade de Pernambuco, 2021 -- now.\n"
+								+ "Adaptada2 por Antonio Sereno para Universidade de Pernambuco, 2022.2 PPSW.\n"
 								+ "A cópia original do autor está disponível em http://www.darwinsys.com/",
 						"Sobre JabberPoint", JOptionPane.INFORMATION_MESSAGE);
 			}

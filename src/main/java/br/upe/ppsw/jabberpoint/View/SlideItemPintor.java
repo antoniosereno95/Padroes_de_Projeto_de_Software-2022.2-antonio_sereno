@@ -19,7 +19,7 @@ public class SlideItemPintor {
         this.slideItem = slideItem;
     }
 
-    public void draw(
+    public void Desenha(
         int x, int y, float scale, Graphics g, Style style,
         ImageObserver observer
     ) {
