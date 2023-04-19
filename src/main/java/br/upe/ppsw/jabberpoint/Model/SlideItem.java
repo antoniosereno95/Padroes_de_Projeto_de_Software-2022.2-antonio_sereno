@@ -8,29 +8,20 @@ import br.upe.ppsw.jabberpoint.View.Style;
 
 public abstract class SlideItem {
 
-	
-//como é uma classe abstrata, essas coisas deveriam estar aqui mesmo? Sim, essas coisas podem estar ai sim.	
-  private int level = 0;
+	private int level = 0;
 
-  public SlideItem(int lev) { //contrutor
-    this.level = lev; //falta o this
-  }
+	  public SlideItem(int lev) {
+	    level = lev;
+	  }
 
-  public SlideItem() { //overload no construtor?(metodo maluco)
-    this(0); //this oq?
-  }
+	  public SlideItem() {
+	    this(0);
+	  }
 
-  public int getLevel() {
-    return this.level;
-  }
-//--final das coisas que o comentario da linha 12 menciona
+	  public int getLevel() {
+	    return level;
+	  }
 
-  
-  
-  public abstract Rectangle getBoundingBox(Graphics g, ImageObserver observer, float scale,
-      Style style);
-
-  public abstract void draw(int x, int y, float scale, Graphics g, Style style,
-      ImageObserver observer);
-
+	  public abstract Rectangle getBoundingBox(Graphics g, ImageObserver observer, float scale,
+	      Style style);
 }
