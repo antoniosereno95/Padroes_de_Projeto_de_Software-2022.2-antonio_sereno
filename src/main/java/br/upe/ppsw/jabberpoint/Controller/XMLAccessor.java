@@ -21,7 +21,7 @@ import br.upe.ppsw.jabberpoint.Model.Slide;
 import br.upe.ppsw.jabberpoint.Model.SlideItem;
 import br.upe.ppsw.jabberpoint.Model.TextItem;
 
-public class XMLAccessor implements AcessorLoad , AcessorSave { //Interface Segregacion e tambem Silgle Responsibility
+public class XMLAccessor implements AcessorLoad, AcessorSave { // Interface Segregacion e tambem Silgle Responsibility
 
 	protected static final String DEFAULT_API_TO_USE = "dom";
 
@@ -155,7 +155,7 @@ public class XMLAccessor implements AcessorLoad , AcessorSave { //Interface Segr
 
 		out.close();
 	}
-	
+
 	public XMLAccessor getDemoAccessor() {
 		return new DemoPresentation();
 	}

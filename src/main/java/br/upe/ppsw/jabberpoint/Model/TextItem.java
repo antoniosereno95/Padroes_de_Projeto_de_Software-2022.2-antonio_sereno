@@ -64,7 +64,6 @@ public class TextItem extends SlideItem {
 		return new Rectangle((int) (myStyle.getIndent() * scale), 0, xsize, ysize);
 	}
 
-	// mudei a visibilidade do metodo
 	public List<TextLayout> getLayouts(Graphics g, Style s, float scale) {
 		List<TextLayout> layouts = new ArrayList<TextLayout>();
 

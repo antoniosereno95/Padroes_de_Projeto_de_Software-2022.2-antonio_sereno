@@ -10,18 +10,17 @@ public abstract class SlideItem {
 
 	private int level = 0;
 
-	  public SlideItem(int lev) {
-	    level = lev;
-	  }
+	public SlideItem(int lev) {
+		level = lev;
+	}
 
-	  public SlideItem() {
-	    this(0);
-	  }
+	public SlideItem() {
+		this(0);
+	}
 
-	  public int getLevel() {
-	    return level;
-	  }
+	public int getLevel() {
+		return level;
+	}
 
-	  public abstract Rectangle getBoundingBox(Graphics g, ImageObserver observer, float scale,
-	      Style style);
+	public abstract Rectangle getBoundingBox(Graphics g, ImageObserver observer, float scale, Style style);
 }

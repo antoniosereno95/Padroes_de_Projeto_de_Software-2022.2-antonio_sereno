@@ -12,7 +12,7 @@ import br.upe.ppsw.jabberpoint.Model.BitmapItem;
 import br.upe.ppsw.jabberpoint.Model.SlideItem;
 import br.upe.ppsw.jabberpoint.Model.TextItem;
 
-public class SlideItemPintor { //SlideItemDesigner
+public class SlideItemPintor { 
 	private SlideItem slideItem;
 
     public SlideItemPintor(SlideItem slideItem) {

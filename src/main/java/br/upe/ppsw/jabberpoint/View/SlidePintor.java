@@ -7,7 +7,7 @@ import java.awt.image.ImageObserver;
 import br.upe.ppsw.jabberpoint.Model.Slide;
 import br.upe.ppsw.jabberpoint.Model.SlideItem;
 
-public class SlidePintor { //SlideDesigner
+public class SlidePintor { 
 	
 	private Slide slide;
 
