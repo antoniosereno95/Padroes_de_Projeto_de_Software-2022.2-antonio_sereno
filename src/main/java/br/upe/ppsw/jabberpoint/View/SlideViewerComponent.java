@@ -43,6 +43,10 @@ public class SlideViewerComponent extends JComponent {
 		repaint();
 		frame.setTitle(presentation.getTitle());
 	}
+	
+	private float getScale(Rectangle area) {
+		return Math.min(((float) area.width) / ((float) 1200.0), ((float) area.height) / ((float) 800.0));
+	}
 
 	public void paintComponent(Graphics g) {
 		g.setColor(BGCOLOR);
@@ -58,32 +62,11 @@ public class SlideViewerComponent extends JComponent {
 
 		Rectangle area = new Rectangle(0, YPOS, getWidth(), (getHeight() - YPOS));
 
-		draw(g, area, this);
+		SlidePintor slidePintor = new SlidePintor(slide);
+
+		slidePintor.draw(g, area, this);
 	}
+
 	
-	public void draw(Graphics g, Rectangle area, ImageObserver view) {
-		float scale = getScale(area);
-
-		int y = area.y;
-
-		SlideItem slideItem = slide.getTitle();
-		Style style = Style.getStyle(slideItem.getLevel());
-		slideItem.draw(area.x, y, scale, g, style, view);
-
-		y += slideItem.getBoundingBox(g, view, scale, style).height;
-
-		for (int number = 0; number < slide.getSize(); number++) {
-			slideItem = (SlideItem) slide.getSlideItems().elementAt(number);
-
-			style = Style.getStyle(slideItem.getLevel());
-			slideItem.draw(area.x, y, scale, g, style, view);
-
-			y += slideItem.getBoundingBox(g, view, scale, style).height;
-		}
-	}
-
-	private float getScale(Rectangle area) {
-		return Math.min(((float) area.width) / ((float) 1200.0), ((float) area.height) / ((float) 800.0));
-	}
-
+	
 }
