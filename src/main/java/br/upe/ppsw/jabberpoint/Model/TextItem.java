@@ -28,8 +28,8 @@ public class TextItem extends SlideItem {
     this.text = string;
   }
 
-  public TextItem() { //aqui ta errado falta o void
-    this(0, EMPTYTEXT);//oq porra é isso, um segundo contrutor?
+  public  TextItem() { 
+    this(0, EMPTYTEXT);
   }
 
   public String getText() {
@@ -66,34 +66,10 @@ public class TextItem extends SlideItem {
     return new Rectangle((int) (myStyle.getIndent() * scale), 0, xsize, ysize);
   }
  
-  //metodo Draw de desneho em tela, esse metodo deve ser colocado em um novo arquivo e posto no packege VIEW!!!
-  //metodo drw tem que organizar com o single responsability, talvez ele vire uma interface ou uma classe a ser instancianda e 
-  //no construtor a pessoa diz qual o tipo de objeto qu elee recebe, talvez acabar usanod o L do solid, onde o pai pode ter comporamnetos do filho e pa.
-  public void draw(int x, int y, float scale, Graphics g, Style myStyle, ImageObserver o) {
-    if (text == null || text.length() == 0) {
-      return;
-    }
+ 
 
-    List<TextLayout> layouts = getLayouts(g, myStyle, scale);
-    Point pen = new Point(x + (int) (myStyle.getIndent() * scale), y + (int) (myStyle.getLeading() * scale));
-
-    Graphics2D g2d = (Graphics2D) g;
-    g2d.setColor(myStyle.getColor());
-
-    Iterator<TextLayout> it = layouts.iterator();
-
-    while (it.hasNext()) {
-      TextLayout layout = it.next();
-
-      pen.y += layout.getAscent();
-      layout.draw(g2d, pen.x, pen.y);
-
-      pen.y += layout.getDescent();
-    }
-  }
-
-  //Esse metodo aqui eu nao sei onde ele deveria estar, mas ele é utilizado dentro dos metodos que a classe implementa da interface SlideItems
-  private List<TextLayout> getLayouts(Graphics g, Style s, float scale) {
+  
+  public List<TextLayout> getLayouts(Graphics g, Style s, float scale) { //tive que mudar a visibilidade do metodo
 	    List<TextLayout> layouts = new ArrayList<TextLayout>();
 
 	    AttributedString attrStr = getAttributedString(s, scale);
@@ -122,6 +98,8 @@ public class TextItem extends SlideItem {
 	    return attrStr;
 	}
 
-		
   
 }
+
+
+
