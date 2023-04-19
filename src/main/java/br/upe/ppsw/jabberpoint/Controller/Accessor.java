@@ -1,6 +1,9 @@
-package br.upe.ppsw.jabberpoint.Model;
+package br.upe.ppsw.jabberpoint.Controller;
 
 import java.io.IOException;
+
+import br.upe.ppsw.jabberpoint.Model.DemoPresentation;
+import br.upe.ppsw.jabberpoint.Model.Presentation;
 
 //Essa classe aqui pode virar uma interface depois, ja que os seus metodos sao abstratos e precisao sem implementados quando instacianda em outro local
 public abstract class Accessor { //classe abstrata com metodos implementados(essa classe ai com return nela)**(mas é estatica)

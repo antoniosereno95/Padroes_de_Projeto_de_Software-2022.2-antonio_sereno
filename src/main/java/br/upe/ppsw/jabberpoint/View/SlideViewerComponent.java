@@ -14,9 +14,8 @@ import br.upe.ppsw.jabberpoint.Model.Presentation;
 import br.upe.ppsw.jabberpoint.Model.Slide;
 import br.upe.ppsw.jabberpoint.Model.SlideItem;
 
-public class SlideViewerComponent extends JComponent {// classes que extendem esse JComponent sao todas de VIEW
-
-	// esses atributos estaticos tem que ser eliminados ao maximo.
+public class SlideViewerComponent extends JComponent {
+	
 	private static final long serialVersionUID = 227L;
 	private static final Color BGCOLOR = Color.white;
 	private static final Color COLOR = Color.black;
@@ -38,14 +37,6 @@ public class SlideViewerComponent extends JComponent {// classes que extendem es
 		this.frame = frame;
 	}
 
-//	public Dimension getPreferredSize() {
-//		return new Dimension((int) 1200.0, (int) 800.0);
-//		// pra fazer essa refatoraçao aqui, tive que olhar a assinatura do metodo
-//		// Dimension e fazer
-//		// o casting necessario ja que as variaveis estaticas era Double
-//	}
-	
-	//refatorei
 	public void update() { 
 		this.slide = presentation.getCurrentSlide();
 		
@@ -70,9 +61,6 @@ public class SlideViewerComponent extends JComponent {// classes que extendem es
 		draw(g, area, this);
 	}
 	
-	/*
-	 * Esse metodo Draw estava inicialmente la na classe Slide e eu realoquei ela pra ca pq aqui é ond ela é utilizada.
-	 */
 	public void draw(Graphics g, Rectangle area, ImageObserver view) {
 		float scale = getScale(area);
 
