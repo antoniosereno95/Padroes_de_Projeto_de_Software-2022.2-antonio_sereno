@@ -21,6 +21,10 @@ import br.upe.ppsw.jabberpoint.Model.Slide;
 import br.upe.ppsw.jabberpoint.Model.SlideItem;
 import br.upe.ppsw.jabberpoint.Model.TextItem;
 
+//de acordo com a prof isso é um MODEL!!!
+//------
+//O SALVAR COMO JASON OU COMO HTML OU XML PARTEM TODOS DESSA CLASSE, 
+//MTU PROVAVELMENTE É SO COPIAR A CLASSE MESMO E MUDAR PRA EXTENSAO QUE PRECISA
 public class XMLAccessor implements AcessorLoad, AcessorSave { // Interface Segregacion e tambem Silgle Responsibility
 
 	protected static final String DEFAULT_API_TO_USE = "dom";

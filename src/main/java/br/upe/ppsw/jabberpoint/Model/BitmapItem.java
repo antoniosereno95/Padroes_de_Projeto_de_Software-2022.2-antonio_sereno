@@ -14,6 +14,7 @@ import br.upe.ppsw.jabberpoint.View.Style;
 
 public class BitmapItem extends SlideItem {
 
+	//pRA LIDAR COIM IMAGENS TEM QUE FAZER UM ARRAY DE BITS E NAO TRATAR A IMAGEM OCMO UM OBJETO!
 	private BufferedImage bufferedImage;
 	private String imageName;
 

@@ -13,6 +13,7 @@ import org.springframework.util.ResourceUtils;
 import br.upe.ppsw.jabberpoint.Model.Presentation;
 import br.upe.ppsw.jabberpoint.View.SlideViewerComponent;
 
+//ESSA AQUI REALMENTE É UM CONTROLLER
 public class MenuController extends MenuBar {
 
 	private static final long serialVersionUID = 227L;

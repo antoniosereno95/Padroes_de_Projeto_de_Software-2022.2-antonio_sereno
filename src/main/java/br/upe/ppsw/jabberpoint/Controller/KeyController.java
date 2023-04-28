@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 import br.upe.ppsw.jabberpoint.Model.Presentation;
 import br.upe.ppsw.jabberpoint.View.SlideViewerComponent;
 
+//ESSA AQUI REALMENTE É UM CONTROLLER
 public class KeyController extends KeyAdapter {
 
 	private Presentation presentation;
